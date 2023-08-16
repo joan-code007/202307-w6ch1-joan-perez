@@ -1,6 +1,4 @@
-import { Film } from "../types";
-
-export const filmsMock: Film[] = [
+export const filmsMock = [
   {
     id: 1,
     title: "Viaje a Darjeeling",

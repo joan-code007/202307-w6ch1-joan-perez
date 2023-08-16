@@ -1,19 +1,19 @@
 import { useCallback } from "react";
 import { Film } from "../types";
 
-const useFilmsApi = () => {
-  const apiUrl = import.meta.env.VITE_API_FILMS_URL;
+export const apiUrl = import.meta.env.VITE_API_FILMS_URL;
 
+const useFilmsApi = () => {
   const getFilms = useCallback(async () => {
     try {
-      const response = await fetch(`${apiUrl}`);
+      const response = await fetch(`${apiUrl}/films`);
       const apiFilms = (await response.json()) as Film[];
 
       return apiFilms;
-    } catch {
+    } catch (error) {
       throw new Error("Films couldn't be loaded");
     }
-  }, [apiUrl]);
+  }, []);
   return { getFilms };
 };
 
